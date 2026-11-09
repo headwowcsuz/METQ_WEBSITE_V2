@@ -157,7 +157,7 @@ def spec_html(m):
     rows = [("O‘lcham", "200 × 100 mm (aniq kesish o‘lchami, bleed yo‘q)"), ("Material", m["material"]),
             ("Ishlab chiqarish", m["production"]), ("O‘rnatish", m["mount"]),
             ("Logotip", "Rasmiy METQ logotipi asl nisbat va ranglarda, oq fonsiz (o‘zgartirilmagan)." + " Fayldagi logotip rastr (402×249 px, tablichkada ≈ 400 dpi). Lazer gravyura yoki plyonka kesish uchun logotipning vektor asl nusxasini (AI/CDR/SVG/PDF) korxonadan so‘rang."),
-            ("F.I.O", "Lavozim ostidagi qator: " + (D.FIO.get(D.T_DIR) or "—") + " (namuna). Haqiqiy F.I.O _MANBA/fio.json fayliga yoziladi va fayllar qayta yaratiladi. Xodim almashganda faqat shu qator o‘zgaradi."),
+            ("F.I.O", "Lavozim ostidagi qator: " + (D.FIO.get(D.T_DIR) or "—") + ". Haqiqiy F.I.O _MANBA/fio.json fayliga yoziladi va fayllar qayta yaratiladi. Xodim almashganda faqat shu qator o‘zgaradi."),
             ("Shrift", m["font"] + " — fayllarda matn vektor konturga aylantirilgan (shrift o‘rnatish shart emas)."),
             ("O‘rnatish balandligi", "Tablichka markazi poldan 1550–1650 mm, eshik tutqichi tomonidan yoki eshik markazida."),
             ("Fayllar", "BOSH_DIREKTOR / QABULXONA: .svg (vektor matn + logotip), .pdf (200×100 mm, vektor), .png (3840×1920), MOCKUP_*.jpg, TEXNIK_CHIZMA.svg")]
