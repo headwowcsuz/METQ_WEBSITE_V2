@@ -156,9 +156,10 @@ def spec_html(m):
     notes = "".join(f"<li>{esc(x)}</li>" for x in m["notes"])
     rows = [("O‘lcham", "200 × 100 mm (aniq kesish o‘lchami, bleed yo‘q)"), ("Material", m["material"]),
             ("Ishlab chiqarish", m["production"]), ("O‘rnatish", m["mount"]),
+            ("Logotip", m.get("logo","Rasmiy METQ logotipi asl nisbat va ranglarda (o‘zgartirilmagan).") + " Fayldagi logotip rastr (402×249 px, tablichkada ≈ 400 dpi). Lazer gravyura yoki plyonka kesish uchun logotipning vektor asl nusxasini (AI/CDR/SVG/PDF) korxonadan so‘rang."),
             ("Shrift", m["font"] + " — fayllarda matn vektor konturga aylantirilgan (shrift o‘rnatish shart emas)."),
             ("O‘rnatish balandligi", "Tablichka markazi poldan 1550–1650 mm, eshik tutqichi tomonidan yoki eshik markazida."),
-            ("Fayllar", "BOSH_DIREKTOR / QABULXONA: .svg (vektor), .pdf (200×100 mm, vektor), .png (3840×1920), MOCKUP_*.jpg, TEXNIK_CHIZMA.svg")]
+            ("Fayllar", "BOSH_DIREKTOR / QABULXONA: .svg (vektor matn + logotip), .pdf (200×100 mm, vektor), .png (3840×1920), MOCKUP_*.jpg, TEXNIK_CHIZMA.svg")]
     tr = "".join(f"<tr><th>{esc(a)}</th><td>{esc(b)}</td></tr>" for a, b in rows)
     return f'''<html><head><meta charset="utf-8"><style>
 @page{{size:A4;margin:12mm}} body{{font-family:Inter,'DejaVu Sans',sans-serif;color:#1b1f1d;font-size:9.5pt;margin:0}}
