@@ -1,0 +1,9 @@
+02 — Black & Gold Luxury (Qora va oltin hashamatli)
+Uslub: Luxury · Executive
+O‘lcham: 200 × 100 mm
+Material: Mat qora akril 5 mm (yoki mat qora alyuminiy kompozit 3 mm). Asosiy yozuv — oltin ko‘zguli akril 2 mm, hajmli harflar. Ramka va kichik yozuvlar — oltin metallik plyonka yoki oltin UV-bosma (Gold foil).
+Ishlab chiqarish: Asos: lazer kesish, burchaklar 8 mm qiyalab kesilgan. Harflar: oltin ko‘zguli akrildan lazer kesish, asosga elim bilan. Ramka: plotter kesish (plyonka).
+O‘rnatish: Yashirin: orqa tomonda 3M VHB ikki tomonlama lenta (4 polosa) — vint ko‘rinmaydi.
+Shrift: Cormorant Garamond SemiBold (fayllarda matn konturga aylantirilgan)
+Ranglar: #121212 Mat qora, #E9D08C Oltin (yorqin), #B48C3D Oltin, #8A6A2F Bronza
+Eslatma: Ingichka serifli harflar uchun lazer nuri ≤0.1 mm; kichik yozuv (kapitel 2.9 mm) faqat plyonka/bosma usulida.

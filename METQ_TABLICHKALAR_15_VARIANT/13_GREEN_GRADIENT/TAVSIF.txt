@@ -1,0 +1,9 @@
+13 — Green Gradient (Yashil gradient)
+Uslub: Modern · Corporate
+O‘lcham: 200 × 100 mm
+Material: Oq yaltiroq akril 4 mm, to‘liq rangli UV-bosma (gradientlar). Muqobil: oq kompozit 3 mm.
+Ishlab chiqarish: Lazer kesish, burchaklar R3, UV-bosma (CMYK + oq), ixtiyoriy laminatsiya.
+O‘rnatish: Yashirin: 3M VHB lenta.
+Shrift: Manrope ExtraBold / SemiBold (fayllarda matn konturga aylantirilgan)
+Ranglar: #FFFFFF Oq, #C8EBA0 Och-yashil, #3C9C4B Yashil, #0D4A2A To‘q yashil, #0F4A2C Matn
+Eslatma: Gradientlar uchun bosmaxonadan rang sinovini (proof) so‘rang.

@@ -1,0 +1,9 @@
+12 — Industrial Modern (Industrial zamonaviy)
+Uslub: Industrial · Technical
+O‘lcham: 200 × 100 mm
+Material: Grafit rangli anodlangan alyuminiy 3 mm (yoki kukunli bo‘yalgan po‘lat 2 mm, mat). Yozuv, chizg‘ich va shtrix maydon — fiber lazer gravyura (och kulrang metall ochiladi).
+Ishlab chiqarish: Lazer kesish, burchaklar R2, 4 ta teshik Ø4.5 mm, gravyura.
+O‘rnatish: Olti qirrali boshli M4 boltlar (zanglamaydigan), 4 dona, shayba bilan.
+Shrift: Oswald SemiBold / Regular (fayllarda matn konturga aylantirilgan)
+Ranglar: #33363A Grafit metall, #45494D Grafit (yorug‘), #C9CED2 Gravyura yozuv, #A7ADB2 Chiziqlar, #7D8388 Shtrix
+Eslatma: Gravyura rangi materialga bog‘liq: anodlangan alyuminiyda och kumush, bo‘yalgan po‘latda metall rangi chiqadi.

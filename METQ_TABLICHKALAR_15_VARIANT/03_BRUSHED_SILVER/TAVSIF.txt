@@ -1,0 +1,9 @@
+03 — Brushed Silver (Cho‘tkalangan kumush)
+Uslub: Business · Metal
+O‘lcham: 200 × 100 mm
+Material: Kumush «brushed» alyuminiy kompozit panel (ACP) 3 mm yoki cho‘tkalangan alyuminiy 1.5 mm. Yozuvlar — qora UV-bosma yoki lazer gravyura + qora to‘ldirish.
+Ishlab chiqarish: Frezer/lazer bilan kesish, burchaklar R1.5, 4 ta teshik Ø3.5 mm (M3), qirralarni silliqlash.
+O‘rnatish: Dekorativ gumbazsimon qopqoqli vint M3 (Ø5 mm), 4 dona + orqa tomonda VHB lenta.
+Shrift: Inter Display Bold / SemiBold (fayllarda matn konturga aylantirilgan)
+Ranglar: #E9EBED Kumush, #B6BBC0 Alyuminiy, #7F868D Qirra, #111315 Qora matn
+Eslatma: Fayldagi metall tekstura — vizual ko‘rinish. Haqiqiy tekstura materialning o‘zida bo‘ladi: ishlab chiqarishda faqat qora qatlam bosiladi.

@@ -1,0 +1,9 @@
+08 — Ultra Minimalist (Ultra minimal)
+Uslub: Minimalist
+O‘lcham: 200 × 100 mm
+Material: Oq mat akril (PMMA) 4 mm. Matn va chiziq — UV-bosma (qora, yashil, kulrang).
+Ishlab chiqarish: Lazer kesish, o‘tkir burchaklar (R0), qirralarni silliqlash, UV-bosma.
+O‘rnatish: Yashirin: 3M VHB lenta.
+Shrift: Inter Display Regular / Medium (fayllarda matn konturga aylantirilgan)
+Ranglar: #FFFFFF Oq, #111111 Qora, #2E9E5B Yashil chiziq, #8A8D8F Kulrang
+Eslatma: Minimal dizaynda tekislash muhim: o‘rnatishda lazerli sath (uroven) ishlating.

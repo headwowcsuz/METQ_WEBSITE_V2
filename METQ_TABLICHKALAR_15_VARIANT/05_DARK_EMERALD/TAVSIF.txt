@@ -1,0 +1,9 @@
+05 — Dark Emerald (To‘q zumrad)
+Uslub: Corporate · Classic
+O‘lcham: 200 × 100 mm
+Material: To‘q yashil akril 5 mm (yoki bo‘yalgan kompozit 3 mm). Oq yozuv — oq UV-bosma; oltin ramka va kichik yozuv — oltin metallik plyonka yoki oltin UV-bosma.
+Ishlab chiqarish: Lazer kesish, burchaklar ichkariga botiq R7 (klassik plaket shakli), bosma, plyonka.
+O‘rnatish: Yashirin: 3M VHB lenta.
+Shrift: Playfair Display Bold + Montserrat Medium (fayllarda matn konturga aylantirilgan)
+Ranglar: #0E4836 Zumrad, #176A4F Zumrad (yorug‘), #FFFFFF Oq matn, #F1D999 Oltin (yorqin), #C49A48 Oltin
+Eslatma: Zumrad rang akril tayyor ranglarida bo‘lmasa — oq akrilga to‘liq rangli UV-bosma qiling (rang namunasini oldindan tasdiqlang).

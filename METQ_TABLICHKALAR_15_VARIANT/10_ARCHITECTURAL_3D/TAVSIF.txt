@@ -1,0 +1,9 @@
+10 — Architectural 3D (Arxitektura 3D)
+Uslub: Architectural · 3D
+O‘lcham: 200 × 100 mm
+Material: Orqa qatlam: grafit akril 5 mm (200×100). Old qatlam: oq akril 3 mm, poligon shakl, 3 mm qalin distansion lenta bilan ko‘tarilgan. Yozuv: grafit akril 3 mm hajmli harflar (yoki UV-bosma). Yashil uchburchaklar: yashil akril 3 mm.
+Ishlab chiqarish: Barcha qatlamlarni lazer kesish, qatlamlarni shablon bo‘yicha yig‘ish (jami qalinlik ≈ 14 mm).
+O‘rnatish: Yashirin: 3M VHB lenta (orqa qatlamga).
+Shrift: Archivo ExtraBold / Medium (fayllarda matn konturga aylantirilgan)
+Ranglar: #2A2F33 Grafit, #FFFFFF Oq qatlam, #2C9A54 Yashil, #58C26F Och-yashil, #1F2428 Matn
+Eslatma: Qatlamlar fayldagi alohida konturlar bo‘yicha kesiladi: orqa to‘rtburchak, old poligon, uchburchaklar.

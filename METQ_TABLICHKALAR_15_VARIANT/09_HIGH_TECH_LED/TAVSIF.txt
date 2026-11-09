@@ -1,0 +1,11 @@
+09 — High-Tech LED (Yuqori texnologik LED)
+Uslub: High-Tech
+O‘lcham: 200 × 100 mm
+Material: Old panel: qora yaltiroq akril 5 mm (orqa tomoni bo‘yalgan). Yorug‘lik qatlami: opal (sut-oq) akril 5 mm. Yozuv va LED chiziq — old paneldagi bo‘yoqni lazer bilan olib tashlash (yorug‘lik o‘tadi). Orqada — alyuminiy profil ramka 15 mm.
+Ishlab chiqarish: Lazer kesish (qarama-qarshi burchaklar 10 mm qiyalab), bo‘yoqni lazerda olib tashlash (yozuv, kontur chiziq, sxema chiziqlari), yashil LED moduli, kabel chiqishi.
+O‘rnatish: Alyuminiy ramka eshik/devorga 4 ta yashirin vint bilan; kabel eshik ichidan yoki devor bo‘ylab kabel-kanal orqali.
+Shrift: Orbitron Bold + Exo 2 Medium (fayllarda matn konturga aylantirilgan)
+Ranglar: #050807 Qora akril, #2BFF88 LED yashil, #D9FFE9 Yorug‘ matn, #1F9C5C Chizma chiziqlar, #9DB5A9 Kulrang matn
+Eslatma: LED: 12 V yashil SMD tasma (IP20), ramka ichida perimetr bo‘yicha ~0.55 m; quvvat ≈ 3 W.
+Eslatma: Ta’minot: 12 V 1 A adapter (devorga yaqin rozetka) yoki eshik uchun 5 V USB-C akkumulyator moduli + taymer.
+Eslatma: Eshik ochilib-yopilishi kabelni shikastlamasligi uchun tablichkani eshik yonidagi devorga o‘rnatish tavsiya etiladi.

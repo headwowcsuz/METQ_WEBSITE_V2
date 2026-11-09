@@ -1,0 +1,9 @@
+15 — Futuristic Energy (Futuristik energetika)
+Uslub: Innovative · Energy
+O‘lcham: 200 × 100 mm
+Material: Oq yaltiroq akril 4 mm, UV-bosma. Elektr uzatish tayanchlari va simlar — kumush metallik bo‘yoq yoki nozik lazer gravyura.
+Ishlab chiqarish: Lazer kesish, burchaklar R4, UV-bosma (oq + CMYK + kumush).
+O‘rnatish: Yashirin: 3M VHB lenta.
+Shrift: Exo 2 Bold / Medium (fayllarda matn konturga aylantirilgan)
+Ranglar: #FFFFFF Oq, #1F7A45 Yashil, #3FAE5A Och-yashil, #9AA3AB Kumush, #6F7A83 Kulrang matn
+Eslatma: Simlar chiziq qalinligi 0.18–0.35 mm — bosma uchun mos; gravyura tanlansa minimal 0.2 mm.
