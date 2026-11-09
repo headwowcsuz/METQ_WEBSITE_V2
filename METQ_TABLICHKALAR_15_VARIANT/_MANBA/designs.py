@@ -102,11 +102,23 @@ def logo_plate(cx, y, h, pad, fill, stroke=None, sw=0.3, r=1.6, extra=""):
     return (f'<rect x="{f(cx-pw/2)}" y="{f(y)}" width="{f(pw)}" height="{f(ph)}" rx="{r}" fill="{fill}"{st}{extra}/>'
             + logo(cx, y + pad, h, "middle")), pw, ph
 
+# ---------------------------------------------------------------- F.I.O
+import json as _json
+_FP = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "fio.json")
+FIO = _json.load(open(_FP, encoding="utf-8")) if _os.path.exists(_FP) else {}
+
+def NM(title, font, cap, x, y, fill, anchor="start", tracking=0.02, max_w=150, extra=""):
+    """F.I.O qatori (fio.json dan). Bo'sh bo'lsa chizilmaydi."""
+    name = FIO.get(title, "").strip()
+    if not name: return ""
+    d, w, _ = tp.path(name, font, tp.size_for_cap(font, cap), x, y, anchor, tracking, max_w)
+    return f'<path d="{d}" fill="{fill}"{extra}/>'
+
 # ---------------------------------------------------------------- dizaynlar
 def d01(title, p):
     shape = rrect(0, 0, W, H, 5)
     fnt = "montserrat-700"; size = tp.fit_size(TITLES, fnt, 12.5, 142, 0.01)
-    t, w = T(title, fnt, size, 34, 59, "#1e2b2f", tracking=0.01)
+    t, w = T(title, fnt, size, 34, 56, "#1e2b2f", tracking=0.01)
     co, cw = T(CO, "montserrat-600", tp.size_for_cap("montserrat-600", 3.0), 62, 26.6, "#4f9f34", tracking=0.12)
     defs = (grad(f"{p}bg", [(0, "#ffffff"), (1, "#f2f5f3")]) +
             grad(f"{p}gr", [(0, "#8fd05a"), (1, "#56a83a")], 0, 0, 1, 1) + standoff_defs(p) +
@@ -116,16 +128,16 @@ def d01(title, p):
             f'<path d="{poly([(0,0),(22,0),(13,100),(0,100)])}" fill="url(#{p}gr)"/>'
             f'<path d="{poly([(25.2,0),(27,0),(18,100),(16.2,100)])}" fill="#b6df8c"/></g>'
             f'<path d="{rrect(0.15,0.15,W-0.3,H-0.3,4.85)}" fill="none" stroke="#dfe6e2" stroke-width="0.3"/>'
-            + logo(34, 15, 15.5) + co + t +
-            f'<rect x="34" y="66" width="28" height="1.3" fill="#56a83a"/>'
-            f'<rect x="65" y="66.5" width="{f(max(40, 34+w-65))}" height="0.3" fill="#c9d4ce"/>'
+            + logo(34, 15, 15.5) + co + t + NM(title, "montserrat-500", 4.0, 34, 76, "#3c4a4f", max_w=148) +
+            f'<rect x="34" y="62.5" width="28" height="1.3" fill="#56a83a"/>'
+            f'<rect x="65" y="63" width="{f(max(40, 34+w-65))}" height="0.3" fill="#c9d4ce"/>'
             + "".join(standoff(p, x, y, 6) for x, y in [(9, 9), (9, 91), (191, 9), (191, 91)]))
     return defs, body, shape, [(9, 9, 3), (9, 91, 3), (191, 9, 3), (191, 91, 3)], "Distansion ushlagich Ø12 mm (4 dona)"
 
 def d02(title, p):
     shape = chamfer(0, 0, W, H, 8)
     fnt = "cormorant-600"; size = tp.fit_size(TITLES, fnt, 13.5, 160, 0.08)
-    t, w = T(title, fnt, size, 100, 60, f"url(#{p}gold)", "middle", 0.08)
+    t, w = T(title, fnt, size, 100, 54, f"url(#{p}gold)", "middle", 0.08)
     cs = tp.size_for_cap("cormorant-600", 2.9)
     co, cw = T(CO, "cormorant-600", cs, 100, 81, f"url(#{p}gold)", "middle", 0.22)
     gx = 100 - cw/2 - 4; gx2 = 100 + cw/2 + 4
@@ -140,7 +152,7 @@ def d02(title, p):
             f'<line x1="62" y1="21.5" x2="84" y2="21.5" stroke="url(#{p}gold)" stroke-width="0.3"/>'
             f'<line x1="116" y1="21.5" x2="138" y2="21.5" stroke="url(#{p}gold)" stroke-width="0.3"/>'
             + diamond(84.6, 21.5, 1.1) + diamond(115.4, 21.5, 1.1)
-            + logo_plate(100, 12, 15.5, 1.6 - 0.8, "#f7f1e3", f"url(#{p}gold)", 0.45, 1.2)[0] + t +
+            + logo(100, 13, 15.5, "middle") + t + NM(title, "cormorant-600", 4.4, 100, 67.5, f"url(#{p}gold)", "middle", 0.05) +
             f'<line x1="{f(max(18, gx-24))}" y1="80" x2="{f(gx)}" y2="80" stroke="url(#{p}gold)" stroke-width="0.25"/>'
             f'<line x1="{f(gx2)}" y1="80" x2="{f(min(182, gx2+24))}" y2="80" stroke="url(#{p}gold)" stroke-width="0.25"/>'
             + co)
@@ -149,7 +161,7 @@ def d02(title, p):
 def d03(title, p):
     shape = rrect(0, 0, W, H, 1.5)
     fnt = "inter-700"; size = tp.fit_size(TITLES, fnt, 14, 168, 0.0)
-    t, w = T(title, fnt, size, 100, 64.5, "#111315", "middle", 0.0)
+    t, w = T(title, fnt, size, 100, 61, "#111315", "middle", 0.0)
     co, cw = T(CO, "inter-600", tp.size_for_cap("inter-600", 2.9), 100, 36, "#1d2023", "middle", 0.16)
     a = 100 - cw/2 - 5; b = 100 + cw/2 + 5
     defs = (grad(f"{p}al", [(0, "#cfd3d7"), (0.22, "#f3f4f5"), (0.5, "#b6bbc0"), (0.78, "#e9ebed"), (1, "#c0c5ca")], 0, 0, 0.25, 1) +
@@ -164,14 +176,15 @@ def d03(title, p):
             f'<line x1="22" y1="35" x2="{f(a)}" y2="35" stroke="#1d2023" stroke-width="0.35"/>'
             f'<line x1="{f(b)}" y1="35" x2="178" y2="35" stroke="#1d2023" stroke-width="0.35"/>'
             + logo(100, 9, 15, "middle") + co + t +
-            f'<rect x="88" y="75" width="24" height="1.1" fill="#111315"/>' + screws)
+            f'<rect x="88" y="67" width="24" height="1.1" fill="#111315"/>'
+            + NM(title, "inter-500", 4.0, 100, 79.5, "#26292c", "middle") + screws)
     return defs, body, shape, [(8,8,1.75),(192,8,1.75),(8,92,1.75),(192,92,1.75)], "Dekorativ qopqoqli vintlar M4 (4 dona) + VHB lenta"
 
 def d04(title, p):
     shape = rrect(0, 0, W, H, 3)
     fnt = "jost-500"; size = tp.fit_size(TITLES, fnt, 13, 138, 0.06)
-    t, w = T(title, fnt, size, 100, 59, "#18744a", "middle", 0.06)
-    co, cw = T(CO, "jost-500", tp.size_for_cap("jost-500", 3.0), 100, 78.5, "#2f6f55", "middle", 0.2)
+    t, w = T(title, fnt, size, 100, 55, "#18744a", "middle", 0.06)
+    co, cw = T(CO, "jost-500", tp.size_for_cap("jost-500", 3.0), 100, 83, "#2f6f55", "middle", 0.2)
     defs = (grad(f"{p}fr", [(0, "#f3f8f7", 0.9), (0.5, "#e2ecea", 0.84), (1, "#d3e2df", 0.88)], 0, 0, 1, 1) +
             noise_filter(f"{p}frost", "1.6", 0.13, 1, 5) + standoff_defs(p) +
             grad(f"{p}sheen", [(0, "#ffffff", 0.55), (0.35, "#ffffff", 0), (1, "#ffffff", 0.0)], 0, 0, 0.6, 1))
@@ -180,34 +193,35 @@ def d04(title, p):
             f'<path d="{shape}" fill="url(#{p}sheen)"/>'
             f'<path d="{rrect(0.7,0.7,W-1.4,H-1.4,2.3)}" fill="none" stroke="#ffffff" stroke-opacity="0.85" stroke-width="1.2"/>'
             f'<path d="{shape}" fill="none" stroke="#8fbcb0" stroke-width="0.45"/>'
-            + logo(100, 12, 17, "middle") + t + f'<rect x="70" y="67" width="60" height="0.4" fill="#18744a"/>'
-            f'<circle cx="100" cy="67.2" r="1" fill="#18744a"/>' + co
+            + logo(100, 12, 17, "middle") + t + f'<rect x="70" y="61.5" width="60" height="0.4" fill="#18744a"/>'
+            f'<circle cx="100" cy="61.7" r="1" fill="#18744a"/>' + NM(title, "jost-400", 4.2, 100, 73, "#1f5f43", "middle", 0.03, 138) + co
             + "".join(standoff(p, x, y, 9.5) for x, y in [(14,14),(186,14),(14,86),(186,86)]))
     return defs, body, shape, [(14,14,4),(186,14,4),(14,86,4),(186,86,4)], "Xromlangan distansion ushlagich Ø19 mm (4 dona)"
 
 def d05(title, p):
     shape = concave(0, 7)
     fnt = "playfair-700"; size = tp.fit_size(TITLES, fnt, 12.5, 160, 0.04)
-    t, w = T(title, fnt, size, 100, 61, "#ffffff", "middle", 0.04)
-    co, cw = T(CO, "montserrat-500", tp.size_for_cap("montserrat-500", 2.7), 100, 80, f"url(#{p}gold)", "middle", 0.24)
+    t, w = T(title, fnt, size, 100, 55.5, "#ffffff", "middle", 0.04)
+    co, cw = T(CO, "montserrat-500", tp.size_for_cap("montserrat-500", 2.7), 100, 83, f"url(#{p}gold)", "middle", 0.24)
     defs = (rgrad(f"{p}em", [(0, "#176a4f"), (0.6, "#0e4836"), (1, "#082c21")], 0.5, 0.45, 0.75) +
             grad(f"{p}gold", [(0, "#b38b3f"), (0.4, "#f1d999"), (0.7, "#c49a48"), (1, "#e6c67b")], 0, 0, 1, 1) +
             noise_filter(f"{p}n", "0.8", 0.05, 2, 21))
     orn = (f'<line x1="64" y1="21.5" x2="84" y2="21.5" stroke="url(#{p}gold)" stroke-width="0.3"/>'
            f'<line x1="116" y1="21.5" x2="136" y2="21.5" stroke="url(#{p}gold)" stroke-width="0.3"/>'
-           + logo_plate(100, 11.5, 15.5, 1.0, "#ffffff", f"url(#{p}gold)", 0.5, 2.2)[0])
+           + logo(100, 13, 15.5, "middle"))
     body = (f'<path d="{shape}" fill="url(#{p}em)"/>'
             f'<path d="{shape}" fill="#fff" filter="url(#{p}n)"/>'
             f'<path d="{concave(3.6,7)}" fill="none" stroke="url(#{p}gold)" stroke-width="0.6"/>'
             f'<path d="{concave(5,7)}" fill="none" stroke="url(#{p}gold)" stroke-width="0.18"/>'
-            + orn + t + f'<rect x="88" y="68.5" width="24" height="0.35" fill="url(#{p}gold)"/>' + co)
+            + orn + t + f'<rect x="88" y="61.5" width="24" height="0.35" fill="url(#{p}gold)"/>'
+            + NM(title, "playfair-500", 4.2, 100, 72.5, "#e8f1ec", "middle", 0.02) + co)
     return defs, body, shape, [], "Yashirin: 3M VHB lenta yoki orqa tomondan yelim"
 
 def d06(title, p):
     shape = (f"M14,0H200V86A14,14 0 0 1 186,100H0V14A14,14 0 0 1 14,0Z")
     fnt = "raleway-700"; size = tp.fit_size(TITLES, fnt, 13.5, 150, 0.04)
-    d, w, s = tp.path(title, fnt, size, 100, 60, "middle", 0.04)
-    cd, cw, _ = tp.path(CO, "raleway-500", tp.size_for_cap("raleway-500", 2.9), 100, 73.5, "middle", 0.16)
+    d, w, s = tp.path(title, fnt, size, 100, 54.5, "middle", 0.04)
+    cd, cw, _ = tp.path(CO, "raleway-500", tp.size_for_cap("raleway-500", 2.9), 100, 76, "middle", 0.16)
     defs = (grad(f"{p}ac", [(0, "#eaf6f3", 0.42), (1, "#cfe5df", 0.3)], 0, 0, 1, 1) +
             grad(f"{p}sh", [(0, "#ffffff", 0.6), (0.3, "#ffffff", 0.05), (0.7, "#ffffff", 0), (1, "#ffffff", 0.25)], 0, 0, 1, 1) +
             shadow_filter(f"{p}ds", 0.5, 0.9, 0.55, 0.55) + standoff_defs(p))
@@ -222,7 +236,8 @@ def d06(title, p):
             f'<path d="{d}" fill="#9aa8a4" transform="translate(0.35 0.35)"/>'
             f'<path d="{d}" fill="#ffffff" filter="url(#{p}ds)"/>'
             f'<path d="{cd}" fill="#ffffff" filter="url(#{p}ds)"/>'
-            + logo_plate(100, 13, 16, 1.2, "#ffffff", None, 0, 2, f' filter="url(#{p}ds)"')[0]
+            + logo(100, 13, 16, "middle")
+            + NM(title, "raleway-500", 4.2, 100, 67, "#ffffff", "middle", 0.03, 150, f' filter="url(#{p}ds)"')
             + "".join(standoff(p, x, 50, 6.5) for x in (10, 190)))
     return defs, body, shape, [(10,50,3),(190,50,3)], "Xromlangan distansion ushlagich Ø16 mm (2 dona)"
 
@@ -230,7 +245,7 @@ def d07(title, p):
     shape = rrect(0, 0, W, H, 0.8)
     fnt = "cinzel-700"; size = tp.fit_size(TITLES, fnt, 12.5, 162, 0.06)
     d, w, s = tp.path(title, fnt, size, 100, 57.5, "middle", 0.06)
-    cd, cw, _ = tp.path(CO, "cinzel-500", tp.size_for_cap("cinzel-500", 2.8), 100, 82, "middle", 0.18)
+    cd, cw, _ = tp.path(CO, "cinzel-500", tp.size_for_cap("cinzel-500", 2.8), 100, 90, "middle", 0.18)
     defs = (grad(f"{p}wd", [(0, "#5b3923"), (0.35, "#43291a"), (0.65, "#573621"), (1, "#3a2416")], 0, 0, 0, 1) +
             f'<filter id="{p}grain" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">'
             f'<feTurbulence type="fractalNoise" baseFrequency="0.006 0.22" numOctaves="4" seed="9"/>'
@@ -245,7 +260,7 @@ def d07(title, p):
             f'<path d="{shape}" fill="#000" filter="url(#{p}grain)"/>'
             f'<path d="{shape}" fill="#000" filter="url(#{p}grain2)" opacity="0.5"/>'
             f'<path d="{shape}" fill="url(#{p}edge)"/>'
-            + logo_plate(100, 6.5, 15, 1.2, f"url(#{p}steel)", "#6f767c", 0.25, 0.8, f' filter="url(#{p}ds)"')[0] +
+            + logo(100, 7.5, 15, "middle") + NM(title, "cinzel-500", 4.0, 100, 79.5, f"url(#{p}steel)", "middle", 0.04, 150, f' filter="url(#{p}ds)"') +
             f'<rect x="40" y="27" width="120" height="1.2" fill="url(#{p}steel)" filter="url(#{p}ds)"/>'
             f'<rect x="40" y="68" width="120" height="1.2" fill="url(#{p}steel)" filter="url(#{p}ds)"/>'
             f'<path d="{d}" fill="url(#{p}steel)" filter="url(#{p}ds)"/>'
@@ -255,19 +270,20 @@ def d07(title, p):
 def d08(title, p):
     shape = rrect(0, 0, W, H, 0)
     fnt = "inter-400"; size = tp.fit_size(TITLES, fnt, 10.5, 172, 0.2)
-    t, w = T(title, fnt, size, 100, 57, "#111111", "middle", 0.2)
+    t, w = T(title, fnt, size, 100, 52, "#111111", "middle", 0.2)
     co, cw = T(CO, "inter-500", tp.size_for_cap("inter-500", 2.3), 100, 85, "#8a8d8f", "middle", 0.3)
     body = (f'<path d="{shape}" fill="#ffffff"/>'
             f'<path d="{rrect(0.1,0.1,W-0.2,H-0.2,0)}" fill="none" stroke="#e4e6e7" stroke-width="0.2"/>'
-            + logo(100, 15, 13, "middle") + t + f'<rect x="88" y="66" width="24" height="0.5" fill="#2e9e5b"/>' + co)
+            + logo(100, 15, 13, "middle") + t + f'<rect x="88" y="59.5" width="24" height="0.5" fill="#2e9e5b"/>'
+            + NM(title, "inter-400", 3.7, 100, 71, "#3a3d3f", "middle", 0.06) + co)
     return "", body, shape, [], "Yashirin: 3M VHB ikki tomonlama lenta"
 
 def d09(title, p):
     shape = "M0,0H190L200,10V100H10L0,90Z"
     inner = "M3,3H188.76L197,11.24V97H11.24L3,88.76Z"
     fnt = "orbitron-700"; size = tp.fit_size(TITLES, fnt, 11, 158, 0.07)
-    t, w = T(title, fnt, size, 100, 58, "#d9ffe9", "middle", 0.07, extra=f' filter="url(#{p}glow)"')
-    co, cw = T(CO, "exo2-500", tp.size_for_cap("exo2-500", 2.6), 100, 78, "#9db5a9", "middle", 0.2)
+    t, w = T(title, fnt, size, 100, 52.5, "#d9ffe9", "middle", 0.07, extra=f' filter="url(#{p}glow)"')
+    co, cw = T(CO, "exo2-500", tp.size_for_cap("exo2-500", 2.6), 100, 80, "#9db5a9", "middle", 0.2)
     led = "#2bff88"
     circ = ""
     for pts in [[(186,16),(170,16),(164,22),(148,22)], [(186,20),(176,20),(172,24)], [(186,88),(166,88),(162,84),(150,84)], [(186,91.5),(174,91.5),(171,88.5)]]:
@@ -280,8 +296,8 @@ def d09(title, p):
             f'<clipPath id="{p}c"><path d="{shape}"/></clipPath>'
             f'<path d="M0,0H120L60,100H0Z" fill="url(#{p}gl)" clip-path="url(#{p}c)" opacity="0.6"/>'
             f'<path d="{inner}" fill="none" stroke="{led}" stroke-width="0.45" filter="url(#{p}lglow)"/>'
-            + circ + logo_plate(30, 9, 13, 1.0, "#eef7f2", led, 0.4, 1.2, f' filter="url(#{p}lglow)"')[0] + t +
-            f'<rect x="72" y="67" width="56" height="0.35" fill="{led}" filter="url(#{p}lglow)"/>' + co +
+            + circ + logo(14, 10, 13) + t + NM(title, "exo2-500", 4.0, 100, 70, "#c8f5dc", "middle", 0.06) +
+            f'<rect x="72" y="60" width="56" height="0.35" fill="{led}" filter="url(#{p}lglow)"/>' + co +
             f'<path d="{shape}" fill="none" stroke="#2a3330" stroke-width="0.3"/>')
     return defs, body, shape, [], "Alyuminiy orqa ramka 15 mm + yashirin kronshteyn; LED tasma ichida"
 
@@ -289,14 +305,14 @@ def d10(title, p):
     shape = rrect(0, 0, W, H, 0)
     front = [(5, 5), (168, 5), (195, 32), (195, 95), (20, 95), (5, 80)]
     fnt = "archivo-800"; cap = 15.5
-    size = tp.fit_size(["DIREKTOR", T_QAB], fnt, cap, 160, 0.01)
+    size = tp.fit_size(["DIREKTOR", T_QAB], fnt, 13.5, 160, 0.01)
     if " " in title:
         a, b = title.split(" ", 1)
-        t1, _ = T(a, fnt, size, 22, 45, "#1f2428", tracking=0.01, extra=f' filter="url(#{p}ts)"')
-        t2, _ = T(b, fnt, size, 22, 68, "#1f2428", tracking=0.01, extra=f' filter="url(#{p}ts)"')
+        t1, _ = T(a, fnt, size, 22, 41, "#1f2428", tracking=0.01, extra=f' filter="url(#{p}ts)"')
+        t2, _ = T(b, fnt, size, 22, 60, "#1f2428", tracking=0.01, extra=f' filter="url(#{p}ts)"')
         tt = t1 + t2
     else:
-        tt, _ = T(title, fnt, size, 22, 64, "#1f2428", tracking=0.01, extra=f' filter="url(#{p}ts)"')
+        tt, _ = T(title, fnt, size, 22, 58, "#1f2428", tracking=0.01, extra=f' filter="url(#{p}ts)"')
     co, cw = T(CO, "archivo-500", tp.size_for_cap("archivo-500", 2.6), 22, 85, "#2c9a54", tracking=0.14)
     defs = (grad(f"{p}bk", [(0, "#353b40"), (1, "#1f2327")], 0, 0, 1, 1) +
             grad(f"{p}fr", [(0, "#ffffff"), (1, "#eceff0")], 0, 0, 1, 1) +
@@ -308,14 +324,14 @@ def d10(title, p):
             f'<path d="{poly(front)}" fill="url(#{p}fr)" filter="url(#{p}ls)"/>'
             f'<path d="{poly([(150,95),(195,50),(195,95)])}" fill="#e3e8e6"/>'
             f'<path d="{poly([(166,95),(195,66),(195,95)])}" fill="url(#{p}g1)"/>'
-            f'<rect x="22" y="{25 if " " in title else 36}" width="10" height="1.6" fill="#2c9a54"/>'
-            + logo(132, 11, 18) + tt + co)
+            f'<rect x="22" y="{22 if " " in title else 39}" width="10" height="1.6" fill="#2c9a54"/>'
+            + logo(132, 11, 18) + tt + NM(title, "archivo-500", 4.2, 22, 72.5, "#2a3035", max_w=150) + co)
     return defs, body, shape, [], "Yashirin: VHB lenta; old qatlam orqa qatlamga 3 mm distansion lenta bilan"
 
 def d11(title, p):
     shape = rrect(0, 0, W, H, 14)
     fnt = "marcellus-400"; size = tp.fit_size(TITLES, fnt, 12, 156, 0.07)
-    t, w = T(title, fnt, size, 100, 60, "#15120d", "middle", 0.07)
+    t, w = T(title, fnt, size, 100, 54.5, "#15120d", "middle", 0.07)
     co, cw = T(CO, "marcellus-400", tp.size_for_cap("marcellus-400", 2.7), 100, 82, "#2b2418", "middle", 0.24)
     defs = (grad(f"{p}ch", [(0, "#d6c09b"), (0.25, "#f2e5c9"), (0.5, "#c8b088"), (0.75, "#ecdcbc"), (1, "#cbb38c")], 0, 0, 1, 0.6) +
             noise_filter(f"{p}br", "0.002 1.5", 0.22, 2, 17))
@@ -325,7 +341,8 @@ def d11(title, p):
             f'<path d="{shape}" fill="none" stroke="#a48d66" stroke-width="0.3"/>'
             f'<path d="{rrect(4.5,4.5,W-9,H-9,10)}" fill="none" stroke="#5c4c33" stroke-width="0.35"/>'
             f'<path d="{rrect(5.8,5.8,W-11.6,H-11.6,8.8)}" fill="none" stroke="#5c4c33" stroke-width="0.15"/>'
-            + logo(100, 11, 22, "middle") + t + f'<rect x="91" y="68" width="18" height="0.3" fill="#5c4c33"/>' + co +
+            + logo(100, 11, 20, "middle") + t + f'<rect x="91" y="61" width="18" height="0.3" fill="#5c4c33"/>'
+            + NM(title, "marcellus-400", 4.2, 100, 72, "#2b2418", "middle", 0.04) + co +
             "".join(f'<circle cx="{x}" cy="88" r="0.5" fill="#5c4c33"/>' for x in (96, 100, 104)))
     return defs, body, shape, [], "Yashirin: 3M VHB lenta"
 
@@ -351,7 +368,7 @@ def d12(title, p):
             f'<path d="{rrect(0.3,0.3,W-0.6,H-0.6,1.7)}" fill="none" stroke="#5d6267" stroke-width="0.45"/>'
             f'<g clip-path="url(#{p}hc)">{hatch}</g>'
             f'<rect x="160" y="34" width="26" height="52" fill="none" stroke="#a7adb2" stroke-width="0.3"/>'
-            + logo_plate(173, 14, 14.4, 1.0, "#d9dde0", "#2a2c2e", 0.2, 0.6)[0]
+            + logo(173, 15, 14.4, "middle") + NM(title, "oswald-400", 4.4, 16, 82, "#c9ced2", tracking=0.05, max_w=135)
             + co +
             f'<path d="{d}" fill="#141516" transform="translate(0 -0.3)"/>'
             f'<path d="{d}" fill="#c9ced2"/>'
@@ -364,10 +381,10 @@ def d13(title, p):
     fnt = "manrope-800"; size = tp.fit_size(["DIREKTOR", T_QAB], fnt, 13, 104, 0.0)
     if " " in title:
         a, b = title.split(" ", 1)
-        t1, _ = T(a, fnt, size, 14, 45, "#0f4a2c"); t2, _ = T(b, fnt, size, 14, 64, "#0f4a2c")
+        t1, _ = T(a, fnt, size, 14, 41, "#0f4a2c"); t2, _ = T(b, fnt, size, 14, 58, "#0f4a2c")
         tt = t1 + t2
     else:
-        tt, _ = T(title, fnt, size, 14, 60, "#0f4a2c")
+        tt, _ = T(title, fnt, size, 14, 55, "#0f4a2c")
     co, cw = T(CO, "manrope-600", tp.size_for_cap("manrope-600", 2.5), 14, 85, "#3f8f45", tracking=0.1)
     defs = (grad(f"{p}g1", [(0, "#c8eba0"), (1, "#3c9c4b")], 0, 0, 1, 1) +
             grad(f"{p}g2", [(0, "#2f8a45"), (1, "#0d4a2a")], 0, 0, 1, 1) +
@@ -382,13 +399,13 @@ def d13(title, p):
             f'<path d="{poly([(184,0),(200,0),(200,18)])}" fill="#0d4a2a"/>'
             f'<path d="{poly([(176,64),(190,40),(197,52)])}" fill="#ffffff" opacity="0.22"/></g>'
             f'<path d="{rrect(0.15,0.15,W-0.3,H-0.3,2.85)}" fill="none" stroke="#e1e7e3" stroke-width="0.3"/>'
-            + logo(13, 8, 16) + tt + f'<rect x="14" y="74" width="26" height="1.3" fill="url(#{p}ln)"/>' + co)
+            + logo(13, 8, 16) + tt + NM(title, "manrope-600", 4.0, 14, 69.5, "#2d5a3f", max_w=108) + f'<rect x="14" y="76" width="26" height="1.3" fill="url(#{p}ln)"/>' + co)
     return defs, body, shape, [], "Yashirin: 3M VHB lenta"
 
 def d14(title, p):
     shape = rrect(0, 0, W, H, 2)
     fnt = "michroma-400"; size = tp.fit_size(TITLES, fnt, 8.6, 168, 0.04)
-    t, w = T(title, fnt, size, 100, 53 + tp.cap_height(fnt, size)/2, "#ffffff", "middle", 0.04)
+    t, w = T(title, fnt, size, 100, 51, "#ffffff", "middle", 0.04)
     co, cw = T(CO, "michroma-400", tp.size_for_cap("michroma-400", 2.3), 100, 85, "#121416", "middle", 0.1)
     defs = (grad(f"{p}ti", [(0, "#8e959c"), (0.3, "#c3c8cd"), (0.55, "#80878f"), (0.8, "#b2b8be"), (1, "#7b828a")], 0, 0, 1, 1) +
             noise_filter(f"{p}br", "0.0018 2", 0.28, 2, 41) +
@@ -397,11 +414,12 @@ def d14(title, p):
             f'<path d="{shape}" fill="#fff" filter="url(#{p}br)" style="mix-blend-mode:multiply"/>'
             f'<path d="{rrect(0.25,0.25,W-0.5,H-0.5,1.8)}" fill="none" stroke="#e8ebee" stroke-opacity="0.8" stroke-width="0.35"/>'
             f'<path d="{shape}" fill="none" stroke="#5f666d" stroke-width="0.25"/>'
-            + logo_plate(100, 7, 16.5, 1.2, "#f3f4f5", "#5f666d", 0.25, 1)[0] + co +
+            + logo(100, 8, 17, "middle") + co +
             f'<rect x="8" y="34" width="184" height="38" rx="1" fill="url(#{p}gl)"/>'
             f'<rect x="8.2" y="34.2" width="183.6" height="37.6" rx="0.9" fill="none" stroke="#4a5057" stroke-width="0.3"/>'
             f'<rect x="8" y="34" width="184" height="10" rx="1" fill="#fff" opacity="0.05"/>'
             + t +
+            NM(title, "michroma-400", 3.2, 100, 64, "#c3c8cd", "middle", 0.04, 168) +
             f'<rect x="88" y="77" width="24" height="0.5" fill="#121416"/>')
     return defs, body, shape, [], "Yashirin: 3M VHB lenta (titan rangli anodlangan alyuminiy)"
 
@@ -434,8 +452,8 @@ def tower(cx, base, h, sc=1.0, stroke="#9aa3ab", sw=0.28):
 def d15(title, p):
     shape = rrect(0, 0, W, H, 4)
     fnt = "exo2-700"; size = tp.fit_size(TITLES, fnt, 11.5, 122, 0.03)
-    t, w = T(title, fnt, size, 14, 50, f"url(#{p}tg)", tracking=0.03)
-    co, cw = T(CO, "exo2-500", tp.size_for_cap("exo2-500", 2.5), 14, 67, "#6f7a83", tracking=0.12)
+    t, w = T(title, fnt, size, 14, 46, f"url(#{p}tg)", tracking=0.03)
+    co, cw = T(CO, "exo2-500", tp.size_for_cap("exo2-500", 2.5), 14, 75, "#6f7a83", tracking=0.12)
     t1, a1 = tower(166, 97, 64, 1.0, "#8d979f", 0.3)
     t2, a2 = tower(191, 97, 40, 0.62, "#a9b1b8", 0.25)
     wires = ""
@@ -443,8 +461,8 @@ def d15(title, p):
         mx = (x1+x2)/2; wires += f'<path d="M{f(x1)},{f(y1)} Q{f(mx)},{f(max(y1,y2)+3)} {f(x2)},{f(y2)}" stroke="#a9b1b8" stroke-width="0.18" fill="none"/>'
     for i, (x1, y1) in enumerate(a1[0::2]):
         wires += (f'<path d="M{f(x1)},{f(y1)} Q{f(x1-60)},{f(y1+20+i*2)} {f(-2)},{f(y1+6+i*4)}" stroke="url(#{p}wg)" stroke-width="{0.32 if i==0 else 0.22}" fill="none"/>')
-    pulse = (f'<path d="M14,58 H52 L54.5,54.5 L57.5,61 L60,56.5 L61.5,58 H96" fill="none" stroke="url(#{p}pl)" stroke-width="0.55" stroke-linejoin="round"/>'
-             f'<circle cx="96" cy="58" r="0.9" fill="#3fae5a"/>')
+    pulse = (f'<path d="M14,53 H52 L54.5,49.5 L57.5,56 L60,51.5 L61.5,53 H96" fill="none" stroke="url(#{p}pl)" stroke-width="0.55" stroke-linejoin="round"/>'
+             f'<circle cx="96" cy="53" r="0.9" fill="#3fae5a"/>')
     defs = (grad(f"{p}bg", [(0, "#ffffff"), (0.7, "#f7f9f8"), (1, "#e7ecea")], 0, 0, 0, 1) +
             grad(f"{p}tg", [(0, "#1f7a45"), (1, "#0c3f26")], 0, 0, 1, 0) +
             grad(f"{p}wg", [(0, "#3fae5a", 0), (0.4, "#3fae5a", 0.9), (1, "#9aa3ab", 0.9)], 0, 0, 1, 0) +
@@ -458,7 +476,7 @@ def d15(title, p):
             + wires + t2 + t1 + '</g>'
             f'<path d="{rrect(0.15,0.15,W-0.3,H-0.3,3.85)}" fill="none" stroke="#d5dcd9" stroke-width="0.3"/>'
             f'<rect x="0" y="12" width="4" height="22" fill="#3fae5a"/>'
-            + logo(13, 10, 19) + t + pulse + co)
+            + logo(13, 10, 19) + t + pulse + NM(title, "exo2-500", 4.2, 14, 65, "#24333a", max_w=125) + co)
     return defs, body, shape, [], "Yashirin: 3M VHB lenta"
 
 DESIGNS = [d01, d02, d03, d04, d05, d06, d07, d08, d09, d10, d11, d12, d13, d14, d15]

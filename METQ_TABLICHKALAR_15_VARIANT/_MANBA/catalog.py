@@ -184,7 +184,7 @@ def page(local):
  <img id="pimg" src="POSTER_preview.webp" alt="15 variant taqqoslash posteri" width="2000" height="1413" loading="lazy">
  {dl_poster}
 </section></main>
-<footer class="wrap">Barcha variantlarda rasmiy METQ logotipi asl nisbat va ranglarda joylangan. To‘q fonli variantlarda logotip och plashka ustida turadi. Fayldagi logotip rastr nusxadan olingan: ishlab chiqarishdan oldin logotipning vektor asl nusxasini korxonadan so‘rang. Rang kodlari ekran uchun (HEX): bosmadan oldin ishlab chiqaruvchidan rang namunasini so‘rang.</footer>
+<footer class="wrap">Barcha variantlarda rasmiy METQ logotipi asl nisbat va ranglarda joylangan. Logotip oq fonsiz, to‘g‘ridan-to‘g‘ri tablichka ustida. F.I.O qatoridagi «Familiya Ism Otasining ismi» namuna matni: haqiqiy ism-sharif berilgach almashtiriladi. Fayldagi logotip rastr nusxadan olingan: ishlab chiqarishdan oldin logotipning vektor asl nusxasini korxonadan so‘rang. Rang kodlari ekran uchun (HEX): bosmadan oldin ishlab chiqaruvchidan rang namunasini so‘rang.</footer>
 <dialog id="lb" aria-label="Katta ko‘rish"><div class="lb">
  <div class="hd"><h3></h3>
   <div class="seg" role="group" aria-label="Yozuv"><button data-lt="0">Bosh direktor</button><button data-lt="1">Qabulxona</button></div>
